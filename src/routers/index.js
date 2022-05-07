@@ -1,4 +1,4 @@
-import { HeaderOnly } from '~/components/Layout';
+import { HeaderOnly } from '~/components/Layouts';
 import { Home, Following, Profile, Upload } from '~/pages';
 
 // Public Routers
