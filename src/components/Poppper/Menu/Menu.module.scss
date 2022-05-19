@@ -7,8 +7,13 @@
         justify-content: flex-start;
         font-size: 14px;
         border-radius: 0;
-        font-weight: 500;
-        padding: 12px 16px;
+        font-weight: 600;
+        padding: 11px 16px;
+        line-height: 1.8rem;
+
+        &.separate {
+            border-top: 1px solid rgba(22, 24, 35, 0.12);
+        }
 
         &:hover {
             background-color: rgba(22, 24, 35, 0.03);
@@ -18,4 +23,24 @@
 
 .menu-popper {
     padding-bottom: 8px;
+}
+
+.header {
+    margin-top: -8px;
+    position: relative;
+    height: 50px;
+
+    &-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .back-btn {
+        width: 50px;
+        height: 100%;
+        background-color: transparent;
+        cursor: pointer;
+    }
 }
