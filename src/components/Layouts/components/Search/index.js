@@ -10,6 +10,7 @@ import { SearchIcon } from '~/components/Icons';
 
 import styles from './Search.module.scss';
 import { useDebounce } from '~/hooks';
+import { getSearch } from '~/services/searchServices';
 
 const cx = classNames.bind(styles);
 
@@ -45,16 +46,18 @@ function Search() {
 
         setLoading(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setLoading(false);
-            });
+        const fetchApi = async () => {
+            setLoading(true);
+
+            const result = await getSearch({ q: debounced, type: 'less' });
+
+            setLoading(false);
+
+            setSearchResult(result);
+        };
+
+        fetchApi();
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [debounced]);
 
