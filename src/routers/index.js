@@ -1,24 +1,30 @@
 import { HeaderOnly } from '~/components/Layouts';
-import { Home, Following, Profile, Upload } from '~/pages';
+import { Home, Following, Profile, Upload, Search } from '~/pages';
+import routesConfig from '~/config/routes';
 
 // Public Routers
 const publicRouters = [
     {
-        path: '/',
+        path: routesConfig.home,
         component: Home,
     },
     {
-        path: '/following',
+        path: routesConfig.following,
         component: Following,
     },
     {
-        path: '@:nickname',
+        path: routesConfig.profile,
         component: Profile,
     },
     {
-        path: '/upload',
+        path: routesConfig.upload,
         component: Upload,
         layout: HeaderOnly,
+    },
+    {
+        path: routesConfig.search,
+        component: Search,
+        layout: null,
     },
 ];
 

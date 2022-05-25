@@ -25,7 +25,10 @@ function Search() {
 
     const handleChange = (e) => {
         let value = e.target.value;
-        setSearchValue(value);
+
+        if (!value.startsWith(' ')) {
+            setSearchValue(value);
+        }
     };
 
     const handleClearSearch = () => {
@@ -36,6 +39,10 @@ function Search() {
 
     const handleHideResult = () => {
         setShowResult(false);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
     };
 
     React.useEffect(() => {
@@ -96,7 +103,7 @@ function Search() {
                 )}
 
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={handleSubmit}>
                     <SearchIcon />
                 </button>
             </div>
