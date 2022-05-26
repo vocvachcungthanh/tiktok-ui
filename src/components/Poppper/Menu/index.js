@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false }) {
+function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false, ...passProps }) {
     const [history, setHistory] = React.useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -37,6 +37,7 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
 
     return (
         <Tippy
+            {...passProps}
             interactive
             placement="bottom-end"
             delay={[0, 700]}
@@ -53,7 +54,7 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

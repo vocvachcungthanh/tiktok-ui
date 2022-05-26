@@ -21,14 +21,21 @@
     }
 }
 
-.menu-popper {
-    padding-bottom: 8px;
+.menu {
+    &-popper {
+        padding-bottom: 8px;
+    }
+
+    &-body {
+        overflow-y: auto;
+    }
 }
 
 .header {
     margin-top: -8px;
     position: relative;
     height: 50px;
+    flex-shrink: 0;
 
     &-title {
         position: absolute;
