@@ -1,1 +1,1 @@
-export { publicRouters, privateRouters } from './routers';
+export * from './routers';

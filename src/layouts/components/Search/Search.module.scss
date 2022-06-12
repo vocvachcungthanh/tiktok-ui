@@ -52,7 +52,7 @@
         font-size: 1.6rem;
         background-color: transparent;
         caret-color: red;
-
+        padding-right: 40px;
         &::placeholder {
             font-family: var(--font-family);
         }

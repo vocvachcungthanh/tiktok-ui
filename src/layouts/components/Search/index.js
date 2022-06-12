@@ -17,10 +17,11 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchValue, setSearchValue] = React.useState('');
     const [searchResult, setSearchResult] = React.useState([]);
-    const [showResult, setShowResult] = React.useState(true);
+    const [showResult, setShowResult] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
 
-    const debounced = useDebounce(searchValue);
+    const debouncedValue = useDebounce(searchValue);
+
     const inputRef = React.useRef();
 
     const handleChange = (e) => {
@@ -46,7 +47,7 @@ function Search() {
     };
 
     React.useEffect(() => {
-        if (!!!debounced.trim()) {
+        if (!!!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
@@ -56,7 +57,7 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await getSearch({ q: debounced, type: 'less' });
+            const result = await getSearch({ q: debouncedValue, type: 'less' });
 
             setLoading(false);
 
@@ -66,7 +67,7 @@ function Search() {
         fetchApi();
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [debounced]);
+    }, [debouncedValue]);
 
     return (
         // Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context.
