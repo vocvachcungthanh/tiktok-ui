@@ -18,7 +18,7 @@ import 'tippy.js/dist/tippy.css';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import { Menu } from '~/components/Poppper';
+import { Menu } from '~/components/Popper';
 
 import Button from '~/components/Button';
 import { UploadIcon } from '~/components/Icons';
