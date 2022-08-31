@@ -14,7 +14,7 @@ function AccountPreview() {
             <div className={cx('header')}>
                 <img
                     className={cx('avatar')}
-                    src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1661522400&x-signature=R1nGZjtYOq8tg%2BuhM5LX%2BtJJuo8%3D"
+                    src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1662134400&x-signature=cbJ46L086wxh%2FhXHbXy%2Brf%2FpM%2Fs%3D"
                     alt=""
                 />
                 <Button className={cx('follow-btn')} primary>

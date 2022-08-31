@@ -25,6 +25,7 @@ import { UploadIcon } from '~/components/Icons';
 import Images from '~/components/Images';
 import Search from '~/layouts/components/Search';
 import config from '~/config/';
+import Modal from '~/components/Modal';
 
 const cx = classNames.bind(styles);
 
@@ -62,7 +63,17 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const currentUser = true;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+    const currentUser = false;
 
     // Handle logic
     const handleMenuChange = (menuItem) => {
@@ -112,6 +123,7 @@ function Header() {
                         </React.Fragment>
                     ) : (
                         <React.Fragment>
+                            <div id="publish-btn"></div>
                             <Button text>Upload</Button>
                             <Button primary>Log in</Button>
                         </React.Fragment>
@@ -120,7 +132,7 @@ function Header() {
                         {currentUser ? (
                             <Images
                                 className={cx('user-avatar')}
-                                src="https://i.pinimg.com/564x/69/76/18/6976187ac919aed12e3896992723bc41.jpg"
+                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1662134400&x-signature=cbJ46L086wxh%2FhXHbXy%2Brf%2FpM%2Fs%3D"
                                 alt="Nguyen Van A"
                             />
                         ) : (
@@ -131,6 +143,10 @@ function Header() {
                     </Menu>
                 </div>
             </div>
+            <button onClick={openModal}>Click</button>
+            <Modal isOpen={modalIsOpen}>
+                <button onClick={closeModal}>Close</button>
+            </Modal>
         </header>
     );
 }
